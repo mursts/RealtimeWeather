@@ -30,7 +30,7 @@ def main():
     
     point_matcher = re.compile(u'.*(' + '|'.join(POINTS) + ').*')
 
-    connect('RealtimeWeather')
+    connect('realtimeweather')
 
     for point_data in bs.findAll('div', {'class': 'aData'})[1:]:
         model = Weather()
