@@ -5,20 +5,11 @@ import re
 import requests
 from datetime import datetime
 from BeautifulSoup import BeautifulSoup
-from mongoengine import *
+from mongoengine import connect
+from model.weather import Weather
 
 URL = 'http://weather-station.step.aichi-edu.ac.jp/'
 POINTS = [u'名古屋', u'岡崎']
-
-class Weather(Document):
-    point = StringField()
-    date = DateTimeField()
-    temperature = FloatField()
-    humidity = FloatField()
-    pressure = FloatField()
-    wind_direction = StringField()
-    wind_speed = FloatField()
-    rainfall = FloatField()
 
 def main():
     r = requests.get(URL)
